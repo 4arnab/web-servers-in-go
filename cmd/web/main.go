@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/4arnab/web-servers-in-go/pkg/handlers"
 )
 
 const (
@@ -10,8 +12,8 @@ const (
 )
 
 func main() {
-	http.HandleFunc("/", Home)
-	http.HandleFunc("/about", About)
+	http.HandleFunc("/", handlers.Home)
+	http.HandleFunc("/about", handlers.About)
 
 	fmt.Print("Listening on http://localhost:4000... ")
 	http.ListenAndServe(PORT, nil)

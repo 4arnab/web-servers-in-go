@@ -1,19 +1,13 @@
-package main
+package handlers
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/4arnab/web-servers-in-go/pkg/render"
 )
 
-func handleError(err error) {
-	if err != nil {
-		result := fmt.Errorf(err.Error())
-		fmt.Print(result)
-	}
-}
-
 func Home(response http.ResponseWriter, request *http.Request) {
-	RenderTemplate(response, "home.page.tmpl")
+	render.RenderTemplate(response, "home.page.tmpl")
 
 	// n, error := fmt.Fprintf(response, "this is the home page")
 	// handleError(error)
@@ -21,7 +15,7 @@ func Home(response http.ResponseWriter, request *http.Request) {
 }
 
 func About(response http.ResponseWriter, request *http.Request) {
-	RenderTemplate(response, "about.page.tmpl")
+	render.RenderTemplate(response, "about.page.tmpl")
 
 	// n, error := fmt.Fprintf(response, "Welcome to the about page.")
 	// handleError(error)
